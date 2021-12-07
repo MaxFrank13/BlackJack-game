@@ -1,0 +1,122 @@
+
+/* fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;700&family=Russo+One&display=swap');
+
+/* Variables */
+
+:root {
+    /* colors */
+    --clr-primary-1: #abfece;
+    --clr-primary-2: #8ffdbd;
+    --clr-primary-3: #73fdad;
+    --clr-primary-4: #5cca8a;
+    --clr-primary-5: #459868;
+    --clr-primary-6: #2e6545;
+    --clr-primary-7: #173323;
+
+    --clr-secondary-1: #f0eba6;
+    --clr-secondary-2: #e9e279;
+    --clr-secondary-3: #e1d84d;
+    --clr-secondary-4: #dace20;
+    --clr-secondary-5: #aea51a;
+    --clr-secondary-6: #837c13;
+    --clr-secondary-7: #57520d;
+
+    --clr-tertiary-1: #e57c7c;
+    --clr-tertiary-2: #dc5050;
+    --clr-tertiary-3: #d32424;
+    --clr-tertiary-4: #a91d1d;
+    --clr-tertiary-5: #7f1616;
+    --clr-tertiary-6: #540e0e;
+    --clr-tertiary-7: #2a0707;
+
+    --clr-grey-1: #102a42;
+    --clr-grey-2: #243a52;
+    --clr-grey-3: #324d67;
+    --clr-grey-4: #48647f;
+    --clr-grey-5: #617d98;
+    --clr-grey-6: #829ab0;
+    --clr-grey-7: #9eb2c7;
+
+    --brown: #2c2906;
+    --white: #fff;
+    --black: #000;
+
+    --ff-primary: "Eczar", serif;
+    --ff-secondary: "Russo One", sans-serif;
+    --transition: all 0.3s linear;
+    --spacing: 0.25rem;
+    --radius: 0.5rem;
+    --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+    --max-width: 1170px;
+    --fixed-width: 620px;
+}
+
+/* Global Styles */
+
+*, ::after, ::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.content-container {
+    margin: 4rem 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+.cards, .dealer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    flex-grow: 1;
+}
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 0.2rem;
+    height: 4.75rem;
+    width: 5.5rem;
+    border: 2px solid black;
+    font-size: 2.75rem;
+}
+.lose-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(73, 166, 233, 0.5);
+    display: grid;
+    place-items: center;
+    /* transition: var(--transition); */
+    visibility: hidden;
+    z-index: -10;
+}
+.lose-modal {
+    visibility: visible;
+    z-index: 10;
+}
+
+.win-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(73, 166, 233, 0.5);
+    display: grid;
+    place-items: center;
+    /* transition: var(--transition); */
+    visibility: hidden;
+    z-index: -10;
+}
+.win-modal {
+    visibility: visible;
+    z-index: 10;
+}
