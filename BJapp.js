@@ -1,19 +1,34 @@
 // | Variables |
 const values = [2, 3, 4, 5, 6 , 7, 8 , 9 , 10, "J", "Q", "K", "A"];
 const suits = ["♦", "♥", "♣", "♠"];
+
+// Buttons
 const dealBtn = document.querySelector(".deal");
 const hitBtn = document.querySelector(".hit");
-const shuffleBtn = document.querySelector(".shuffle");
+// const shuffleBtn = document.querySelector(".shuffle");
 const stayBtn = document.querySelector(".stay");
-const loseBtn = document.querySelector(".lose-btn");
-const winBtn = document.querySelector(".win-btn");
+const loseBtn = document.querySelector(".lose");
+const winBtn = document.querySelector(".win");
+
+// Selectors
 const cards_div = document.querySelector(".cards");
 const dealer_div = document.querySelector(".dealer");
 const playerCount_div = document.querySelector(".player-count");
 const dealerCount_div = document.querySelector(".dealer-count");
 const loseOverlay_div = document.querySelector(".lose-overlay");
 const winOverlay_div = document.querySelector(".win-overlay");
+const noClickOverlay_div = document.querySelector(".no-click-overlay");
 
+// Sounds
+const drawSound = document.getElementById("clip1");
+const shuffleSound = document.getElementById("clip2");
+const flipSound = document.getElementById("clip3");
+const staySound = document.getElementById("clip4");
+staySound.loop = true;
+const happySound = document.getElementById("clip5");
+const sadSound = document.getElementById("clip6");
+
+// Other
 let cardVal;
 let checkValPlayer = [];
 let checkValDealer = [];
@@ -35,24 +50,34 @@ dealBtn.addEventListener('click', function() {
 })
 
 hitBtn.addEventListener('click', function() {
-    hitMe();
+    noClickOverlay_div.classList.add("no-click-modal");
+    setTimeout(() => {
+        hitMe();
+    }, 150);
+    setTimeout(() => {
+        noClickOverlay_div.classList.remove("no-click-modal");
+    },300);
  })
 
-shuffleBtn.addEventListener('click', function() {
-    shuffle();  
-})
+// shuffleBtn.addEventListener('click', function() {
+//     shuffle();  
+// })
 
 stayBtn.addEventListener('click', function() {
+    noClickOverlay_div.classList.add("no-click-modal");
+    staySound.play();
     stay();
 })
 
 loseBtn.addEventListener('click', function() {
+    shuffleSound.play();
     shuffle();
     startUp();
     loseOverlay_div.classList.remove("lose-modal");
 })
 
 winBtn.addEventListener('click', function() {
+    shuffleSound.play();
     shuffle();
     startUp();
     winOverlay_div.classList.remove("win-modal");
@@ -61,8 +86,8 @@ winBtn.addEventListener('click', function() {
 // | Functions |
 
 function startUp() {
-    hitDealer();
     hitMe();
+    hitDealer();
     hitMe();
 }
 
@@ -92,6 +117,20 @@ function playerCount(checkValArray) {
     })
     
     playerCount_div.innerHTML = `Your score: ${playerScore}`;
+
+    if (playerScore > 21) {
+        playerBust = true;
+        loseOverlay_div.classList.add("lose-modal");
+        staySound.pause();
+        sadSound.play();
+    }
+
+    if (playerScore === 21) {
+        winOverlay_div.classList.add("win-modal");
+        winBtn.innerHTML = "Blackjack! You win! Play again?";
+        staySound.pause();
+        happySound.play();
+    }
 }
 
 function dealerCount(checkValArray) {
@@ -116,6 +155,14 @@ function dealerCount(checkValArray) {
         }
     })
     dealerCount_div.innerHTML = `Dealer score: ${dealerScore}`;
+
+    if (dealerScore > 21) {
+        dealerBust = true;
+        winOverlay_div.classList.add("win-modal"); 
+        winBtn.innerHTML = "Dealer busts! You win! Play again?"
+        staySound.pause();
+        happySound.play();
+    }
 }
 
 // Dealing cards
@@ -155,16 +202,7 @@ function hitMe() {
     } else {
         hitMe();
     }
-    
-    if (playerScore > 21) {
-        playerBust = true;
-        loseOverlay_div.classList.add("lose-modal");
-    }
-
-    if (playerScore === 21) {
-        winOverlay_div.classList.add("win-modal");
-        winBtn.innerHTML = "Blackjack! You win! Play again?";
-    }
+    drawSound.play();
 }
 
 function hitDealer() {
@@ -202,19 +240,22 @@ function hitDealer() {
     } else {
         hitDealer();
     }
-    
-    if (dealerScore > 21) {
-        dealerBust = true;
-        winOverlay_div.classList.add("win-modal"); 
-    }
+    drawSound.play();
 }
 
 function stay() {
     if (dealerScore <= playerScore && !dealerBust) {
-        hitDealer();
-        stay();
+        setTimeout(() => {
+            flipSound.play();
+            hitDealer();
+            stay();
+        }, 1500);
     } else if (dealerScore > playerScore && !dealerBust) {
-        loseOverlay_div.classList.add("lose-modal");
+        setTimeout(() => {
+            loseOverlay_div.classList.add("lose-modal");
+            staySound.pause();
+            sadSound.play();
+        }, 500)
     }
 }
 
@@ -232,5 +273,6 @@ function shuffle() {
     dealer_div.innerHTML = "";
     playerCount_div.innerHTML = `Your score: ${playerScore}`;
     dealerCount_div.innerHTML = `Dealer score: ${dealerScore}`;
+    noClickOverlay_div.classList.remove("no-click-modal");
 }
 

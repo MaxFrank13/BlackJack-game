@@ -6,32 +6,63 @@
     <title>Document</title>
     <link rel="stylesheet" href="BJstyles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <audio id="clip1">
+        <source src="./Sounds/card-flip2.wav"></source>
+    </audio>
+    <audio id="clip2">
+        <source src="./Sounds/card-shuffle1.wav"></source>
+    </audio>
+    <audio id="clip3">
+        <source src="./Sounds/card-flip1.mp3"></source>
+    </audio>
+    <audio id="clip4">
+        <source src="./Sounds/suspense.flac"></source>
+    </audio>
+    <audio id="clip5">
+        <source src="./Sounds/happy2.wav"></source>
+    </audio>
+    <audio id="clip6">
+        <source src="./Sounds/sad2.wav"></source>
+    </audio>
 </head>
 <body>
     <header>
-        <h2>hello world</h2>
+        <h2>Welcome to the Casino Majestique!</h2> 
     </header>
-    <div class="content-container">
+    <div class="container">
 
-        <div class="lose-overlay">
-            <button class="lose-btn">You lose! Run it back?</button>
-        </div>
-
-        <div class="win-overlay">
-            <button class="win-btn">You win! Double or nothing?</button>
-        </div>
-
-        <button class="btn deal">Deal me!</button>
-        <button class="btn hit">Hit</button>
-        <button class="btn shuffle">Shuffle</button>
-        <button class="btn stay">Stay</button>
-
-        <div class="player-count">Your score: 0</div>
-        <div class="dealer-count">Dealer score: 0</div>
-        <div class="dealer"></div>
-        <div class="cards"></div>
+        <div class="game-container">
+            <!-- win/lose modal boxes -->
+            <div class="lose-overlay">
+                <button class="btn lose">You lose! Run it back?</button>
+            </div>
+            <div class="win-overlay">
+                <button class="btn win">You win! Double or nothing?</button>
+            </div>
+            <div class="no-click-overlay"></div>
+            <!-- buttons -->
+            <div class="btn-container">
+                <button class="btn deal">Deal me!</button>
+                <button class="btn hit">Hit</button>
+                <!-- <button class="btn shuffle">Shuffle</button> -->
+                <button class="btn stay">Stay</button>
+            </div>
+            <!-- scores -->
+            <div class="score-container">
+                <div class="dealer-count">Dealer score: 0</div>
+                <div class="player-count">Your score: 0</div>
+            </div>
+            <!-- cards -->
+            <div class="dealer"></div>
+            <div class="divider"></div>
+            <div class="cards"></div>
         
+        </div>
+
     </div>
+    <footer>
+        <h5>Thanks for playing!</h5>
+    </footer>
     <script src="BJapp.js"></script>
 </body>
 </html>
