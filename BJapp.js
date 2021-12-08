@@ -139,7 +139,7 @@ function hitMe() {
     }
     if (!checkArray.includes(input)) {
         const newCard = document.createElement("div");
-        const cardContent = `<p> ${input} </p>`;
+        const cardContent = `<p> ${input} </p> <p></p> <p></p> <p> ${input} </p>`;
         newCard.classList.add("card");
         newCard.innerHTML = cardContent;
         cards_div.insertAdjacentElement("beforeend", newCard);
@@ -186,7 +186,7 @@ function hitDealer() {
     }
     if (!checkArray.includes(input)) {
         const newCard = document.createElement("div");
-        const cardContent = `<p> ${input} </p>`;
+        const cardContent = `<p> ${input} </p> <p></p> <p></p> <p> ${input} </p>`;
         newCard.classList.add("card");
         newCard.innerHTML = cardContent;
         dealer_div.insertAdjacentElement("beforeend", newCard);

@@ -144,11 +144,12 @@ small,
 }
 .card {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     padding-bottom: 0.2rem;
-    height: 4.75rem;
-    width: 5.5rem;
+    height: 20rem;
+    width: 14rem;
     border: 2px solid black;
     border-radius: var(--radius);
     background: var(--white);
@@ -156,6 +157,14 @@ small,
     font-family: var(--ff-primary);
     font-weight: 500;
 }
+.card > p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 50%;
+}
+
 .lose-overlay {
     position: fixed;
     top: 0;
