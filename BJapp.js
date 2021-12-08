@@ -139,9 +139,9 @@ function hitMe() {
     }
     if (!checkArray.includes(input)) {
         const newCard = document.createElement("div");
-        const cardContent = document.createTextNode(input);
+        const cardContent = `<p> ${input} </p>`;
         newCard.classList.add("card");
-        newCard.appendChild(cardContent);
+        newCard.innerHTML = cardContent;
         cards_div.insertAdjacentElement("beforeend", newCard);
 
         if (cardSuit === "♦" || cardSuit === "♥") {
@@ -186,9 +186,9 @@ function hitDealer() {
     }
     if (!checkArray.includes(input)) {
         const newCard = document.createElement("div");
-        const cardContent = document.createTextNode(input);
+        const cardContent = `<p> ${input} </p>`;
         newCard.classList.add("card");
-        newCard.appendChild(cardContent);
+        newCard.innerHTML = cardContent;
         dealer_div.insertAdjacentElement("beforeend", newCard);
 
         if (cardSuit === "♦" || cardSuit === "♥") {
