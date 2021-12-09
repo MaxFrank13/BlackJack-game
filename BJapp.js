@@ -29,7 +29,6 @@ const happySound = document.getElementById("clip5");
 const sadSound = document.getElementById("clip6");
 
 // Other
-let cardVal;
 let checkValPlayer = [];
 let checkValDealer = [];
 let playerScore = 0;
@@ -89,80 +88,6 @@ function startUp() {
     hitMe();
     hitDealer();
     hitMe();
-}
-
-// Counting scores
-
-function playerCount(checkValArray) {
-    playerScore = 0;
-  
-    for (const value of checkValArray) {
-        if (value > 1) {
-            playerScore += value;
-        } else if (value === "J" || value === "Q" || value === "K") {
-            playerScore += 10;
-        }
-    }   
-    const aceArray = checkValArray.filter(item => item === "A");
- 
-    aceArray.forEach(function() {
-        if (playerScore < 10) {
-            playerScore += 11;
-        }
-        else if (playerScore === 10 && aceArray.length === 1) {
-            playerScore += 11;
-        } else {
-            playerScore++;
-        }
-    })
-    
-    playerCount_div.innerHTML = `Your score: ${playerScore}`;
-
-    if (playerScore > 21) {
-        playerBust = true;
-        loseOverlay_div.classList.add("lose-modal");
-        staySound.pause();
-        sadSound.play();
-    }
-
-    if (playerScore === 21) {
-        winOverlay_div.classList.add("win-modal");
-        winBtn.innerHTML = "Blackjack! You win! Play again?";
-        staySound.pause();
-        happySound.play();
-    }
-}
-
-function dealerCount(checkValArray) {
-    dealerScore = 0;
-  
-    for (const value of checkValArray) {
-        if (value > 1) {
-            dealerScore += value;
-        } else if (value === "J" || value === "Q" || value === "K") {
-            dealerScore += 10;
-        }
-    }   
-    const aceArray = checkValArray.filter(item => item === "A");
- 
-    aceArray.forEach(function() {
-        if (dealerScore < 10) {
-            dealerScore += 11;
-        } else if(dealerScore === 10 && aceArray.length === 1) {
-            dealerScore += 11;
-        } else {
-            dealerScore++;
-        }
-    })
-    dealerCount_div.innerHTML = `Dealer score: ${dealerScore}`;
-
-    if (dealerScore > 21) {
-        dealerBust = true;
-        winOverlay_div.classList.add("win-modal"); 
-        winBtn.innerHTML = "Dealer busts! You win! Play again?"
-        staySound.pause();
-        happySound.play();
-    }
 }
 
 // Dealing cards
@@ -241,6 +166,80 @@ function hitDealer() {
         hitDealer();
     }
     drawSound.play();
+}
+
+// Counting scores
+
+function playerCount(checkValArray) {
+    playerScore = 0;
+  
+    for (const value of checkValArray) {
+        if (value > 1) {
+            playerScore += value;
+        } else if (value === "J" || value === "Q" || value === "K") {
+            playerScore += 10;
+        }
+    }   
+    const aceArray = checkValArray.filter(item => item === "A");
+ 
+    aceArray.forEach(function() {
+        if (playerScore < 10) {
+            playerScore += 11;
+        }
+        else if (playerScore === 10 && aceArray.length === 1) {
+            playerScore += 11;
+        } else {
+            playerScore++;
+        }
+    })
+    
+    playerCount_div.innerHTML = `Your score: ${playerScore}`;
+
+    if (playerScore > 21) {
+        playerBust = true;
+        loseOverlay_div.classList.add("lose-modal");
+        staySound.pause();
+        sadSound.play();
+    }
+
+    if (playerScore === 21) {
+        winOverlay_div.classList.add("win-modal");
+        winBtn.innerHTML = "Blackjack! You win! Play again?";
+        staySound.pause();
+        happySound.play();
+    }
+}
+
+function dealerCount(checkValArray) {
+    dealerScore = 0;
+  
+    for (const value of checkValArray) {
+        if (value > 1) {
+            dealerScore += value;
+        } else if (value === "J" || value === "Q" || value === "K") {
+            dealerScore += 10;
+        }
+    }   
+    const aceArray = checkValArray.filter(item => item === "A");
+ 
+    aceArray.forEach(function() {
+        if (dealerScore < 10) {
+            dealerScore += 11;
+        } else if(dealerScore === 10 && aceArray.length === 1) {
+            dealerScore += 11;
+        } else {
+            dealerScore++;
+        }
+    })
+    dealerCount_div.innerHTML = `Dealer score: ${dealerScore}`;
+
+    if (dealerScore > 21) {
+        dealerBust = true;
+        winOverlay_div.classList.add("win-modal"); 
+        winBtn.innerHTML = "Dealer busts! You win! Play again?"
+        staySound.pause();
+        happySound.play();
+    }
 }
 
 function stay() {
