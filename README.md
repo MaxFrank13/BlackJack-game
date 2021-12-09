@@ -9,30 +9,30 @@ This app is a simple BlackJack game. The goal is to get to a score of 21 without
 ## What does it do?
 
 1. Game begins: hit Player, hit Dealer, hit Player
-    -Scores are then tallied up 
-    -Each card has a numerical value attached to it
-        - 2-10 = simply that number
-        - Jack, Queen, King = 10
-        - Ace can be 11 or 1, player's choice
-    -At this point the Dealer has 1 card and the player has 2 cards
-    -If player score is equal to 21, player will automatically win
+   - Scores are then tallied up 
+   - Each card has a numerical value attached to it
+     - 2-10 = simply that number
+     - Jack, Queen, King = 10
+     - Ace can be 11 or 1, player's choice
+   - At this point the Dealer has 1 card and the player has 2 cards
+   - If player score is equal to 21, player will automatically win
 
 2. Player is given the option to hit or stay
-    -Cards are created dynamically through JavaScript
-        -Before a card is created as an HTML element, the values must first be compared with a "memory bank" array
-        -The card values (i.e. 8 of clubs) is stored in the memory bank array once the card itself is created
-        -If a generated value is found in the memory bank, the app will simply not create the card and instead call the same function to produce a new value
-        -This allows us to pull random cards from a (52 - # of cards drawn) card deck and also ensures no repeats (i.e we don't want two instances of 8 of clubs UNLESS we wanted to add a second deck of playing cards, which this app does not have a method of doing yet)
-        -Cards are given a class through JS and styled in CSS
-    -When player clicks "stay" the computer will automatically start generating cards for the Dealer until they either "bust" (go over 21) or produce a score better than the player
-        -A modal element is present at z-index: -9 and then a class is added in JS that changes the index to 9, thus blocking the player from clicking any buttons/producing any inputs
-        -The same modal technique is used to block double-clicks on the hit button
+   - Cards are created dynamically through JavaScript
+     - Before a card is created as an HTML element, the values must first be compared with a "memory bank" array
+     - The card values (i.e. 8 of clubs) is stored in the memory bank array once the card itself is created
+     - If a generated value is found in the memory bank, the app will simply not create the card and instead call the same function to produce a new value
+     - This allows us to pull random cards from a (52 - # of cards drawn) card deck and also ensures no repeats (i.e we don't want two instances of 8 of clubs UNLESS we wanted to add a second deck of playing cards, which this app does not have a method of doing yet)
+     - Cards are given a class through JS and styled in CSS
+   - When player clicks "stay" the computer will automatically start generating cards for the Dealer until they either "bust" (go over 21) or produce a score better than the player
+     - A modal element is present at z-index: -9 and then a class is added in JS that changes the index to 9, thus blocking the player from clicking any buttons/producing any inputs
+     - The same modal technique is used to block double-clicks on the hit button
 
 3. A result is reached when the Dealer goes over 21 or produces a better score
-    -The modal element is used again here to give the user only one option which is to simply reset the game
-        -A "shuffle" function in JS resets all the relevant values to ensure none of them are used in the following iteration of the game
-        -We don't want the app to remember any cards so clearing the memory bank is one of the many values changed in the shuffle function
-    -The player can then repeat the process, each time getting a fresh 52 card deck to play with
+   - The modal element is used again here to give the user only one option which is to simply reset the game
+   - A "shuffle" function in JS resets all the relevant values to ensure none of them are used in the following iteration of the game
+     - We don't want the app to remember any cards so clearing the memory bank is one of the many values changed in the shuffle function
+   - The player can then repeat the process, each time getting a fresh 52 card deck to play with
 
 ## What did I learn
 
