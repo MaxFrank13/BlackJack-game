@@ -5,6 +5,7 @@ const suits = ["♦", "♥", "♣", "♠"];
 // Buttons
 const dealBtn = document.querySelector(".deal");
 const hitBtn = document.querySelector(".hit");
+// USED FOR TESTING 
 // const shuffleBtn = document.querySelector(".shuffle");
 const stayBtn = document.querySelector(".stay");
 const loseBtn = document.querySelector(".lose");
@@ -58,6 +59,7 @@ hitBtn.addEventListener('click', function() {
     },300);
  })
 
+// USED FOR TESTING 
 // shuffleBtn.addEventListener('click', function() {
 //     shuffle();  
 // })

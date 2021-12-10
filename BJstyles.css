@@ -72,7 +72,7 @@
 }
 
 body {
-    background: var(--backgroundColor);
+    background: var(--primary-4);
     font-family: var(--ff-primary);
     font-weight: 400;
     color: var(--textColor);
@@ -109,26 +109,28 @@ h5 {
 
 /* General formatting */
 header {
-    text-align: center;
-    background: var(--primary-6);
-    padding: 2rem;
-    color: var(--secondary-3);
-    border: 1rem solid var(--tertiary-6);
-}
-.container {
     display: flex;
     justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: var(--primary-6);
+    padding: 1rem;
+    color: var(--secondary-3);
+    border: 1rem solid var(--tertiary-6);
+    height: 15vh;
 }
+
 .game-container {
+    margin: auto;
     padding: 2.5rem;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
     gap: 0.75rem;
-    flex-grow: 1;
-    background: var(--primary-4);
-    width: 50vw;
-    height: auto;
+    width: 100%;
+    padding: 2rem;
+    height: 75vh;
 }
 footer {
     display: flex;
@@ -182,17 +184,21 @@ footer {
 /* Scores */
 
 .score-container {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    gap: 1rem;
     width: 100%;
     font-family: var(--ff-secondary);
     font-size: 2em;
 }
 .dealer-count {
+    text-align: center;
     color: var(--tertiary-3);
     border-bottom: 2px solid var(--brown);
 }
 .player-count {
+    text-align: center;
     color: var(--secondary-4);
     border-bottom: 2px solid var(--brown);
 }
@@ -201,9 +207,9 @@ footer {
 
 .cards, .dealer {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 0.5rem;
+    grid-column: 2 / span 2;
 }
 .divider {
     border-radius: var(--radius);
@@ -218,12 +224,12 @@ footer {
     justify-content: center;
     align-items: center;
     padding: 0 0.15rem;
-    height: 9rem;
-    width: 6rem;
+    height: 15rem;
+    width: 10rem;
     border: 2px solid black;
     border-radius: var(--radius);
     background: var(--white);
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     font-family: var(--ff-primary);
     font-weight: 500;
 }
@@ -259,7 +265,7 @@ footer {
     width: 100%;
     height: 100%;
     background: rgba(197, 134, 248, 0.2);
-    transition: var(--transition);
+    /* transition: var(--transition); */
     visibility: hidden;
     z-index: -10;
 }
@@ -276,7 +282,7 @@ footer {
     width: 100%;
     height: 100%;
     background: rgba(223, 214, 88, 0.2);
-    transition: var(--transition);
+    /* transition: var(--transition); */
     visibility: hidden;
     z-index: -10;
 }
@@ -306,11 +312,37 @@ footer {
 /* Responsive */
 /* Having difficulties with vertical responsiveness */
 
-@media screen and (min-width: 720px) {
+@media screen and (max-width: 720px) {
+    header > h2 {
+        font-size: 2rem;
+    }
     .card {
         padding: 0 0.15rem;
-        height: 15rem;
-        width: 10rem;
-        font-size: 2.5rem;
+        height: 9rem;
+        width: 6.3rem;
+        font-size: 1.5rem;
+
+    }
+}
+@media screen and (max-width: 450px) {
+    .card {
+        display: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        padding: 0 0.05rem;
+        height: 6.6rem;
+        width: 4.62rem;
+        font-size: 2rem;
+        overflow: hidden;
+    }
+    .card > p {
+        visibility: hidden;
+
+    }
+    .card > p:nth-child(1) {
+        visibility: visible;
+        width: 100%;
+        height: 100%;
     }
 }

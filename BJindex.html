@@ -1,40 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
+
     <link rel="stylesheet" href="BJstyles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- sounds -->
     <audio id="clip1">
-        <source src="./Sounds/card-flip2.wav"></source>
+        <source src="./Sounds/card-flip2.wav">
+        </source>
     </audio>
     <audio id="clip2">
-        <source src="./Sounds/card-shuffle1.wav"></source>
+        <source src="./Sounds/card-shuffle1.wav">
+        </source>
     </audio>
     <audio id="clip3">
-        <source src="./Sounds/card-flip1.mp3"></source>
+        <source src="./Sounds/card-flip1.mp3">
+        </source>
     </audio>
     <audio id="clip4">
-        <source src="./Sounds/suspense.flac"></source>
+        <source src="./Sounds/suspense.flac">
+        </source>
     </audio>
     <audio id="clip5">
-        <source src="./Sounds/happy2.wav"></source>
+        <source src="./Sounds/happy2.wav">
+        </source>
     </audio>
     <audio id="clip6">
-        <source src="./Sounds/sad2.wav"></source>
+        <source src="./Sounds/sad2.wav">
+        </source>
     </audio>
 </head>
+
 <body>
     <header>
-        <h2>Welcome to the Casino Majestique!</h2> 
+        <h2>Welcome to the Casino Majestique!</h2>
     </header>
-    <div class="container">
+
 
         <div class="game-container">
-            <!-- win/lose modal boxes -->
+            <!-- win/lose/no-click modal boxes -->
             <div class="lose-overlay">
                 <button class="btn lose">You lose! Run it back?</button>
             </div>
@@ -43,28 +53,32 @@
             </div>
             <div class="no-click-overlay"></div>
             <!-- buttons -->
-            <div class="btn-container">
+            <section class="btn-container">
                 <button class="btn deal">Deal me!</button>
                 <button class="btn hit">Hit</button>
-                <!-- <button class="btn shuffle">Shuffle</button> -->
+                <!-- USED FOR TESTING <button class="btn shuffle">Shuffle</button> -->
                 <button class="btn stay">Stay</button>
-            </div>
+            </section>
             <!-- scores -->
-            <div class="score-container">
+            <section class="score-container">
                 <div class="dealer-count">Dealer score: 0</div>
-                <div class="player-count">Your score: 0</div>
-            </div>
+                <section class="dealer"></section>
+            </section>
             <!-- cards -->
-            <div class="dealer"></div>
+            
             <div class="divider"></div>
-            <div class="cards"></div>
-        
+            <section class="score-container">
+                <div class="player-count">Player score: 0</div>
+                <section class="cards"></section>
+            </section>
+
+
         </div>
 
-    </div>
     <footer>
         <h5>Thanks for playing!</h5>
     </footer>
     <script src="BJapp.js"></script>
 </body>
+
 </html>
