@@ -1,3 +1,5 @@
+window.addEventListener("DOMContentLoaded", function () {
+
 // | Variables |
 const values = [2, 3, 4, 5, 6 , 7, 8 , 9 , 10, "J", "Q", "K", "A"];
 const suits = ["♦", "♥", "♣", "♠"];
@@ -30,6 +32,7 @@ const happySound = document.getElementById("clip5");
 const sadSound = document.getElementById("clip6");
 
 // Other
+
 let checkValPlayer = [];
 let checkValDealer = [];
 let playerScore = 0;
@@ -40,9 +43,8 @@ let dealerBust = false;
 
 // | Event Listeners |
 
-window.addEventListener("DOMContentLoaded", function () {
-    startUp();
-})
+
+startUp();
 
 dealBtn.addEventListener('click', function() {
     shuffle();
@@ -277,3 +279,4 @@ function shuffle() {
     noClickOverlay_div.classList.remove("no-click-modal");
 }
 
+})
