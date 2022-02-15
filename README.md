@@ -2,7 +2,7 @@
 
 ## Description
 
-This is my first application built from scratch. The motivation behind building this was to challenge myself to build an app without the use of tutorials for outside help. I allowed myself to call on code from previous projects but for the most part all of the code is unique to this project. Google search, MDN Web docs, and W3Schools were my primary sources.
+This is my first application built from scratch. The motivation behind building this was to challenge myself to build an app without the use of tutorials for outside help. I allowed myself to call on code from previous projects. Google search, MDN Web docs, and W3Schools were my primary sources.
 
 This app is a simple BlackJack game. The goal is to get to a score of 21 without going over. Your score is then compared with the "Dealer" (which is just a computer player) who is simply trying to beat your score without going over 21. Players "hit" (meaning "to draw cards") first and then the Dealer does the same. 
 
