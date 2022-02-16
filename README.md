@@ -48,6 +48,3 @@ Counting the scores was the most bug-ridden part of the project. The aces can be
 
 This app will probably serve as a "playground" for future side-projects as my journey through web development progresses. Other features like betting and more players could be added. Also the potential for online gameplay with friends. I may explore making other card games by borrowing code from this project to expand what "Casino Majestique" has to offer.
 
-## License
-
-Still working on an official license. For the time being, this project should not be modified, however, code can be copied for personal use.
